@@ -47,4 +47,9 @@ public class ApiExceptionController {
     public String responseStatusEx2() {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "error.bad", new IllegalArgumentException());
     }
+
+    @GetMapping("/api/default-handler-ex")
+    public String defaultException(Integer date) {
+        return "ok";
+    }
 }
