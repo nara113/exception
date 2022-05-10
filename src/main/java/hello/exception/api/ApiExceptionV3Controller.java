@@ -1,17 +1,16 @@
 package hello.exception.api;
 
 import hello.exception.exception.UserException;
-import hello.exception.exhandler.ErrorResult;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-public class ApiExceptionV2Controller {
+public class ApiExceptionV3Controller {
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)
 //    @ExceptionHandler(IllegalArgumentException.class)
 //    private ErrorResult illegalEx(IllegalArgumentException ex) {
@@ -30,7 +29,7 @@ public class ApiExceptionV2Controller {
 //        return new ErrorResult("EX", ex.getMessage());
 //    }
 
-    @GetMapping("/api/v2/members/{id}")
+    @GetMapping("/api/v3/members/{id}")
     public MemberDto getMember(@PathVariable String id) {
         if (id.equals("ex")) {
             throw new RuntimeException("잘못된 사용자");
